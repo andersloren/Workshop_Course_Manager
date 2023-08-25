@@ -18,15 +18,10 @@ public class Course implements Serializable{
 
     //Constructor(s)
     public Course() {
-        this.students = new HashSet<>();
     }
 
-    public Course(Integer id) {
+    public Course(Integer id, String courseName, LocalDate startDate, Integer weekDuration) {
         this.id = id;
-        this.students = new HashSet<>();
-    }
-
-    public Course(String courseName, LocalDate startDate, Integer weekDuration, Collection<Student> students) {
         this.courseName = courseName;
         this.startDate = startDate;
         this.weekDuration = weekDuration;

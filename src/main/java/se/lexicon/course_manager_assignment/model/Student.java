@@ -1,9 +1,11 @@
 package se.lexicon.course_manager_assignment.model;
 
+import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
+
 import java.util.Objects;
 import java.io.Serializable;
 
-public class Student implements Serializable{
+public class Student implements Serializable {
 
     // Fields
     private Integer id;
@@ -12,18 +14,11 @@ public class Student implements Serializable{
     private String address;
 
     //Constructor(s)
-
     public Student() {
     }
-    public Student(Integer id) {
-        this.id = id;
-    }
-    public Student(String name, String email, String address) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
-    }
+
     public Student(Integer id, String name, String email, String address) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;

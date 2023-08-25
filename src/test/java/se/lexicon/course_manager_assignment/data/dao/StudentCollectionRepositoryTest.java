@@ -1,24 +1,17 @@
 package se.lexicon.course_manager_assignment.data.dao;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.format.number.money.Jsr354NumberFormatAnnotationFormatterFactory;
 import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
-import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
 
-
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(classes = {StudentCollectionRepository.class})
 public class StudentCollectionRepositoryTest {
@@ -27,12 +20,29 @@ public class StudentCollectionRepositoryTest {
     private StudentDao testObject;
 
     @Test
-    @DisplayName("Create new student using the StudentCollectionRepository createNewStudent method")
-    void createNewStudent() {
-        StudentCollectionRepository repo = new StudentCollectionRepository(new HashSet<>());
-        Student student = repo.createStudent("Mikael Engvall", "mikael@engvall.se", "Vallgatan 22");
-        System.out.println(repo);
+    @DisplayName("Student object created from createStudent should be given consecutive id values")
+    void createNewStudentHasId() {
+        StudentCollectionRepository repo = new StudentCollectionRepository(new HashSet<Student>());
+        Student student1 = repo.createStudent("Mikael Engvall", "mikael@engvall.se", "Vallgatan 22");
+        Student student2 = repo.createStudent("Anders Engvall", "mikael@engvall.se", "Vallgatan 22");
 
+        assertEquals(1, student1.getId());
+        assertEquals(2, student2.getId());
+
+        // Uncomment these for proof that: 1, 2
+//        System.out.println(student1.getId());
+//        System.out.println(student2.getId());
+    }
+
+    @Test
+    @DisplayName("New StudentCollectionRepository object should have students added to the Collection")
+    void createNewStudent() {
+        StudentCollectionRepository repo = new StudentCollectionRepository(new HashSet<Student>());
+        Student student1 = repo.createStudent("Mikael Engvall", "mikael@engvall.se", "Vallgatan 22");
+        Student student2 = repo.createStudent("Anders Engvall", "mikael@engvall.se", "Vallgatan 22");
+
+        System.out.println((repo.findAll()));
+        //Todo: This pretty much let us know if students have been added to the repo
     }
 
     @AfterEach

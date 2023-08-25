@@ -39,7 +39,7 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Collection<Student> findAll() {
-        return null;
+        return students;
     }
 
     @Override

@@ -15,8 +15,8 @@ public class StudentTest {
 
     @Test
     void getName() {
-        Student student = new Student("Mikael Engvall", "mikael@engvall.org", "Vallgatan 22");
-        Assertions.assertEquals("Mikael Engvall", student.getName());
+        Student student = new Student(StudentSequencer.nextStudentId(), "Mikael Engvall", "mikael@engvall.org", "Vallgatan 22");
+        Assertions.assertEquals(1,"Mikael Engvall", student.getName());
     }
 
     @Test
