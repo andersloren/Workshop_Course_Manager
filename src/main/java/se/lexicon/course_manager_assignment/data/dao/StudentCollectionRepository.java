@@ -3,8 +3,7 @@ package se.lexicon.course_manager_assignment.data.dao;
 import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
 import se.lexicon.course_manager_assignment.model.Student;
 
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 
 
 public class StudentCollectionRepository implements StudentDao {
@@ -24,26 +23,51 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Student findByEmailIgnoreCase(String email) {
+        for (Student student : this.students) {
+            if (student.getEmail().equalsIgnoreCase(email)) {
+                return student;
+            }
+        }
         return null;
     }
 
     @Override
     public Collection<Student> findByNameContains(String name) {
+        ArrayList<Student> studentsFound = new ArrayList<>();
+        for (Student student : this.students) {
+            if (student.getName().equalsIgnoreCase(name)) {
+                studentsFound.add(student);
+            }
+            return studentsFound;
+        }
         return null;
     }
 
     @Override
     public Student findById(int id) {
+        for (Student student : students) {
+            if (student.getId() == (id)) {
+                return student;
+            }
+        }
         return null;
     }
 
     @Override
     public Collection<Student> findAll() {
-        return students;
+        return this.students;
     }
 
     @Override
     public boolean removeStudent(Student student) {
+        Iterator<Student> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            Student nextStudent = iterator.next();
+            if (nextStudent.equals(student)) { // TODO: THIS IS NOT DONE!!!!
+                iterator.remove();
+            }
+
+        }
         return false;
     }
 
