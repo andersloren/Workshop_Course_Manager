@@ -35,12 +35,11 @@ public class StudentCollectionRepository implements StudentDao {
     public Collection<Student> findByNameContains(String name) {
         ArrayList<Student> studentsFound = new ArrayList<>();
         for (Student student : this.students) {
-            if (student.getName().equalsIgnoreCase(name)) {
+            if (student.getName().toLowerCase().contains(name.toLowerCase())) {
                 studentsFound.add(student);
             }
-            return studentsFound;
         }
-        return null;
+        return studentsFound;
     }
 
     @Override
@@ -63,8 +62,9 @@ public class StudentCollectionRepository implements StudentDao {
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
             Student nextStudent = iterator.next();
-            if (nextStudent.equals(student)) { // TODO: THIS IS NOT DONE!!!!
+            if (nextStudent.equals(student)) {
                 iterator.remove();
+                return true;
             }
 
         }
