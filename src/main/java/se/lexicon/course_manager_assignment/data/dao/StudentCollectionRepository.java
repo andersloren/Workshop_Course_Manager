@@ -5,8 +5,7 @@ import se.lexicon.course_manager_assignment.model.Student;
 
 import java.util.*;
 
-
-public class StudentCollectionRepository implements StudentDao {
+public class StudentCollectionRepository implements StudentDao { // "repository" is a hint that this class is responsible for data access
 
     private Collection<Student> students;
 
@@ -44,7 +43,7 @@ public class StudentCollectionRepository implements StudentDao {
 
     @Override
     public Student findById(int id) {
-        for (Student student : students) {
+        for (Student student : this.students) {
             if (student.getId() == (id)) {
                 return student;
             }

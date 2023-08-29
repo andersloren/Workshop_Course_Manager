@@ -2,6 +2,7 @@ package se.lexicon.course_manager_assignment.dto.forms;
 
 
 
+import se.lexicon.course_manager_assignment.data.sequencers.StudentSequencer;
 import se.lexicon.course_manager_assignment.messages.ValidationMessages;
 import se.lexicon.course_manager_assignment.validators.UniqueEmail;
 
@@ -26,6 +27,8 @@ public class CreateStudentForm {
     @Size(max = 255, message = "Address can't have more than 255 letters")
     private String address;
 
+    
+
     public CreateStudentForm(Integer id, String name, String email, String address) {
         this.id = id;
         this.name = name;
@@ -41,7 +44,7 @@ public class CreateStudentForm {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id = StudentSequencer.nextStudentId();
     }
 
     public String getName() {

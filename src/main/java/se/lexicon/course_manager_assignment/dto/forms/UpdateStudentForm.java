@@ -1,8 +1,5 @@
 package se.lexicon.course_manager_assignment.dto.forms;
 
-
-
-
 import se.lexicon.course_manager_assignment.messages.ValidationMessages;
 
 import javax.validation.constraints.*;

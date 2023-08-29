@@ -31,7 +31,8 @@ public class ModelToDtoTest {
 
         ModelToDto modelToDto = new ModelToDto();
 
-        assertEquals(studentMikael.getName(), modelToDto.studentToStudentView(studentMikael).getName());
+        assertEquals(studentMikael.getId(), modelToDto.studentToStudentView(studentMikael).getId());
+        System.out.println(modelToDto.studentToStudentView(studentMikael));
     } // This one is working
 
     @Test
