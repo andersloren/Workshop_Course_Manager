@@ -1,1 +1,33 @@
-[ ]
+[ {
+  "id" : 7,
+  "courseName" : "Python from zero to hero",
+  "startDate" : "2023-09-02",
+  "weekDuration" : 20,
+  "students" : [ {
+    "id" : 13,
+    "name" : "Anders Loren",
+    "email" : "anders@loren.org",
+    "address" : "Jutevägen 5"
+  }, {
+    "id" : 12,
+    "name" : "Mikael Engvall",
+    "email" : "mikael@engvall.org",
+    "address" : "Vallgatan 22"
+  } ]
+}, {
+  "id" : 6,
+  "courseName" : "Java for dummies",
+  "startDate" : "2023-08-29",
+  "weekDuration" : 12,
+  "students" : [ {
+    "id" : 13,
+    "name" : "Anders Loren",
+    "email" : "anders@loren.org",
+    "address" : "Jutevägen 5"
+  }, {
+    "id" : 12,
+    "name" : "Mikael Engvall",
+    "email" : "mikael@engvall.org",
+    "address" : "Vallgatan 22"
+  } ]
+} ]

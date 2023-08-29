@@ -30,25 +30,11 @@ public class Course implements Serializable{
 
     //Methods
     public boolean enrollStudent(Student student) {
-        if (student.getName() == null || student.getEmail() == null || student.getAddress() == null ) {
-            students = new HashSet<>();
-            return false;
-        }
-        for (Student element : students) {
-            if (student.equals(element)) {
-                return false;
-            }
-        }
         return this.students.add(student);
     }
 
     public boolean unrollStudent(Student student) {
-        for (Student element : students) {
-            if (student.equals(element)) {
-                return this.students.remove(student);
-            }
-        }
-        return false;
+        return this.students.remove(student);
     }
 
     // Overridden methods
