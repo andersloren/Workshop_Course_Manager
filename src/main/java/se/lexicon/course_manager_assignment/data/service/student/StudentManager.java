@@ -5,16 +5,13 @@ import org.springframework.stereotype.Service;
 import se.lexicon.course_manager_assignment.data.dao.CourseDao;
 import se.lexicon.course_manager_assignment.data.dao.StudentDao;
 import se.lexicon.course_manager_assignment.data.service.converter.Converters;
-import se.lexicon.course_manager_assignment.data.service.course.CourseManager;
 import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateStudentForm;
-import se.lexicon.course_manager_assignment.dto.views.CourseView;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
 import se.lexicon.course_manager_assignment.model.Student;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service
